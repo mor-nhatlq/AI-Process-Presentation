@@ -523,17 +523,17 @@ flowchart LR
         <thead><tr><th>#</th><th>Bước</th><th>Role chính</th><th>Mô tả</th><th>Skill / Command</th></tr></thead>
         <tbody>
           <tr><td>1a</td><td>Thu thập yêu cầu</td><td>PM/BrSE/BA</td><td>Lấy yêu cầu từ khách hàng / stakeholder</td><td>thủ công</td></tr>
-          <tr><td>1b</td><td>Cài đặt skill AI</td><td>AI Champion</td><td>Cài plugin agent cho dự án, setup môi trường</td><td><code>/spec:setup</code> + <code>/docs-hero:setup</code></td></tr>
+          <tr><td>1b</td><td>Cài đặt skill AI</td><td>AI Champion</td><td>Cài plugin agent cho dự án, setup môi trường</td><td><code>/morkit:setup</code> + <code>/morkit:setup</code></td></tr>
           <tr><td>2</td><td>Nhập yêu cầu</td><td>PM/BrSE/BA</td><td>Đưa yêu cầu cho AI agent xử lý</td><td>feed text → AI</td></tr>
-          <tr><td>3</td><td>Brainstorming</td><td>AI Agent</td><td>AI brainstorm, phân tích, gợi ý hướng tiếp cận</td><td><code>/spec:brainstorm</code></td></tr>
-          <tr><td>4</td><td>Phân rã yêu cầu</td><td>AI Agent</td><td>Chia yêu cầu thành các phần nhỏ, sinh proposal</td><td><code>/spec:propose</code></td></tr>
-          <tr><td>5</td><td>Review</td><td>PM/BrSE/BA</td><td>Người duyệt proposal, gate đầu tiên</td><td><code>/spec:review</code></td></tr>
-          <tr><td>6</td><td>Phân tích Gap &amp; Risk</td><td>AI Agent</td><td>Tìm gap, đánh giá rủi ro thực hiện</td><td><code>/spec:brainstorm</code></td></tr>
-          <tr><td>7</td><td>Review</td><td>PM/BrSE/BA</td><td>Người duyệt phần phân tích gap/risk</td><td><code>/spec:review</code></td></tr>
-          <tr><td>9</td><td>Sinh tài liệu yêu cầu</td><td>AI Agent</td><td>Tạo SRS chuẩn theo template</td><td><code>/docs-hero:init</code></td></tr>
+          <tr><td>3</td><td>Brainstorming</td><td>AI Agent</td><td>AI brainstorm, phân tích, gợi ý hướng tiếp cận</td><td><code>/morkit:brainstorming</code></td></tr>
+          <tr><td>4</td><td>Phân rã yêu cầu</td><td>AI Agent</td><td>Chia yêu cầu thành các phần nhỏ, sinh proposal</td><td><code>/morkit:propose</code></td></tr>
+          <tr><td>5</td><td>Review</td><td>PM/BrSE/BA</td><td>Người duyệt proposal, gate đầu tiên</td><td><code>/morkit:review</code></td></tr>
+          <tr><td>6</td><td>Phân tích Gap &amp; Risk</td><td>AI Agent</td><td>Tìm gap, đánh giá rủi ro thực hiện</td><td><code>/morkit:brainstorming</code></td></tr>
+          <tr><td>7</td><td>Review</td><td>PM/BrSE/BA</td><td>Người duyệt phần phân tích gap/risk</td><td><code>/morkit:review</code></td></tr>
+          <tr><td>9</td><td>Sinh tài liệu yêu cầu</td><td>AI Agent</td><td>Tạo SRS chuẩn theo template</td><td><code>/morkit:init</code></td></tr>
           <tr><td>10</td><td>Review</td><td>PM/BrSE/BA</td><td>Người duyệt SRS</td><td>thủ công</td></tr>
-          <tr><td>11</td><td>Thiết kế hệ thống (HLD)</td><td>AI Agent</td><td>Thiết kế cấp cao, chọn tech stack</td><td><code>/spec:propose</code> design.md</td></tr>
-          <tr><td>12</td><td>Review</td><td>Tech Lead</td><td>Gate cuối, chuyển sang Workflow Code</td><td><code>/spec:review</code></td></tr>
+          <tr><td>11</td><td>Thiết kế hệ thống (HLD)</td><td>AI Agent</td><td>Thiết kế cấp cao, chọn tech stack</td><td><code>/morkit:propose</code> design.md</td></tr>
+          <tr><td>12</td><td>Review</td><td>Tech Lead</td><td>Gate cuối, chuyển sang Workflow Code</td><td><code>/morkit:review</code></td></tr>
         </tbody>
       </table>
       <aside class="notes">
@@ -541,7 +541,7 @@ flowchart LR
         <ul>
           <li>Cheat sheet — không cần nhớ hết.</li>
           <li>Cột "Mô tả" giải thích step làm gì, "Skill" có command thực thi.</li>
-          <li>Highlight: <code>/spec:propose</code> · <code>/spec:review</code> · <code>/docs-hero:init</code>.</li>
+          <li>Highlight: <code>/morkit:propose</code> · <code>/morkit:review</code> · <code>/morkit:init</code>.</li>
         </ul>
         <p><strong>Q:</strong> Cần học hết command không?<br/><strong>A:</strong> Champion / Tech Lead biết toàn bộ. Dev biết command thường dùng (slide 13 tổng hợp).</p>
       </aside>
@@ -629,33 +629,33 @@ Overall Decision: PENDING | OK
       <table>
         <thead><tr><th>#</th><th>Bước</th><th>Role chính</th><th>Mô tả</th><th>Skill / Command</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td>Cài đặt skill AI</td><td>AI Champion</td><td>Cài plugin agent cho dự án</td><td><code>/spec:setup</code></td></tr>
+          <tr><td>1</td><td>Cài đặt skill AI</td><td>AI Champion</td><td>Cài plugin agent cho dự án</td><td><code>/morkit:setup</code></td></tr>
           <tr><td>2</td><td>Nhận yêu cầu</td><td>BrSE/BA</td><td>Bàn giao <code>srs.md</code> + <code>design.md</code> từ Workflow Requirement</td><td>hand off</td></tr>
-          <tr><td>3</td><td>Brainstorming</td><td>Agent Review</td><td>Brainstorm hướng implementation</td><td><code>/superpowers:brainstorm</code></td></tr>
-          <tr><td>4</td><td>Thiết kế chi tiết (LLD)</td><td>Agent Coding</td><td>Thiết kế cấp thấp, chi tiết kỹ thuật</td><td><code>/spec:propose</code> design.md</td></tr>
-          <tr><td>5</td><td>Review LLD</td><td>Tech Lead</td><td>Người duyệt thiết kế chi tiết</td><td><code>/spec:review</code></td></tr>
-          <tr><td>6</td><td>Lập plan TDD</td><td>Agent Coding</td><td>Chia task TDD step-by-step, sinh tasks.md</td><td><code>/superpowers:write-plan</code></td></tr>
-          <tr><td>7</td><td>Review plan</td><td>Tech Lead</td><td>Người duyệt plan trước khi code</td><td><code>/spec:review</code></td></tr>
-          <tr><td>9.1</td><td>Viết test (RED)</td><td>Agent Coding</td><td>Viết test trước, kỳ vọng fail</td><td><code>/superpowers:test-driven-development</code></td></tr>
+          <tr><td>3</td><td>Brainstorming</td><td>Agent Review</td><td>Brainstorm hướng implementation</td><td><code>/morkit:brainstorming</code></td></tr>
+          <tr><td>4</td><td>Thiết kế chi tiết (LLD)</td><td>Agent Coding</td><td>Thiết kế cấp thấp, chi tiết kỹ thuật</td><td><code>/morkit:propose</code> design.md</td></tr>
+          <tr><td>5</td><td>Review LLD</td><td>Tech Lead</td><td>Người duyệt thiết kế chi tiết</td><td><code>/morkit:review</code></td></tr>
+          <tr><td>6</td><td>Lập plan TDD</td><td>Agent Coding</td><td>Chia task TDD step-by-step, sinh tasks.md</td><td><code>/morkit:writing-plans</code></td></tr>
+          <tr><td>7</td><td>Review plan</td><td>Tech Lead</td><td>Người duyệt plan trước khi code</td><td><code>/morkit:review</code></td></tr>
+          <tr><td>9.1</td><td>Viết test (RED)</td><td>Agent Coding</td><td>Viết test trước, kỳ vọng fail</td><td><code>/morkit:test-driven-development</code></td></tr>
           <tr><td>9.2</td><td>Chạy test → FAIL</td><td>Developer</td><td>Xác nhận test fail như kỳ vọng</td><td>npm test / pytest</td></tr>
-          <tr><td>9.4</td><td>Code</td><td>Agent Coding</td><td>Code minimum để pass test</td><td><code>/spec:apply</code></td></tr>
+          <tr><td>9.4</td><td>Code</td><td>Agent Coding</td><td>Code minimum để pass test</td><td><code>/morkit:executing-plans</code></td></tr>
           <tr><td>9.5</td><td>Chạy test → PASS</td><td>Developer</td><td>Test đạt GREEN</td><td>green phase</td></tr>
-          <tr><td>10.1</td><td>Refactor</td><td>Agent Coding</td><td>Refactor code, giữ nguyên behavior</td><td><code>/superpowers:execute-plan</code></td></tr>
-          <tr><td>10.5</td><td>Chạy regression</td><td>Developer</td><td>Chạy toàn bộ test, đảm bảo không break</td><td><code>/superpowers:verification-before-completion</code></td></tr>
-          <tr><td>—</td><td>Overall Review</td><td>Agent Review</td><td>Auto review code đa khía cạnh (security, pattern, ...)</td><td><code>/deep-review --diff</code></td></tr>
-          <tr><td>13</td><td>Final Review</td><td>Developer</td><td>Self review trước khi mở PR</td><td><code>/superpowers:requesting-code-review</code></td></tr>
-          <tr><td>14</td><td>Pull Request</td><td>Developer</td><td>Mở PR lên repo</td><td><code>/superpowers:finishing-a-development-branch</code></td></tr>
-          <tr><td>15</td><td>Review PR</td><td>Tech Lead</td><td>Tech Lead duyệt PR trước khi merge</td><td><code>/deep-review &lt;PR&gt;</code></td></tr>
+          <tr><td>10.1</td><td>Refactor</td><td>Agent Coding</td><td>Refactor code, giữ nguyên behavior</td><td><code>/morkit:executing-plans</code></td></tr>
+          <tr><td>10.5</td><td>Chạy regression</td><td>Developer</td><td>Chạy toàn bộ test, đảm bảo không break</td><td><code>/morkit:verification-before-completion</code></td></tr>
+          <tr><td>—</td><td>Overall Review</td><td>Agent Review</td><td>Auto review code đa khía cạnh (security, pattern, ...)</td><td><code>/morkit:deep-review --diff</code></td></tr>
+          <tr><td>13</td><td>Final Review</td><td>Developer</td><td>Self review trước khi mở PR</td><td><code>/morkit:requesting-code-review</code></td></tr>
+          <tr><td>14</td><td>Pull Request</td><td>Developer</td><td>Mở PR lên repo</td><td><code>/morkit:finishing-a-development-branch</code></td></tr>
+          <tr><td>15</td><td>Review PR</td><td>Tech Lead</td><td>Tech Lead duyệt PR trước khi merge</td><td><code>/morkit:deep-review &lt;PR&gt;</code></td></tr>
         </tbody>
       </table>
       <aside class="notes">
         <p><strong>Time:</strong> 2 phút</p>
         <ul>
           <li>Cheat sheet — tương tự slide 6.</li>
-          <li>Highlight: <code>/superpowers:test-driven-development</code> (RED), <code>/spec:apply</code> (code), <code>/superpowers:execute-plan</code> (refactor), <code>/deep-review --diff</code> (auto review).</li>
-          <li>Tech Lead chú ý: <code>/deep-review &lt;PR&gt;</code> chạy 5 sub-agents song song.</li>
+          <li>Highlight: <code>/morkit:test-driven-development</code> (RED), <code>/morkit:executing-plans</code> (code), <code>/morkit:executing-plans</code> (refactor), <code>/morkit:deep-review --diff</code> (auto review).</li>
+          <li>Tech Lead chú ý: <code>/morkit:deep-review &lt;PR&gt;</code> chạy 5 sub-agents song song.</li>
         </ul>
-        <p><strong>Q:</strong> Phải chạy /deep-review thủ công?<br/><strong>A:</strong> Recommended yes. Hoặc cấu hình GitHub Action chạy auto trên mỗi PR.</p>
+        <p><strong>Q:</strong> Phải chạy /morkit:deep-review thủ công?<br/><strong>A:</strong> Recommended yes. Hoặc cấu hình GitHub Action chạy auto trên mỗi PR.</p>
       </aside>
     </section>
 
@@ -696,35 +696,38 @@ flowchart LR
 
     <!-- Slide 12 — Toolkit -->
     <section data-slide-id="12">
-      <h2>Toolkit · 4 plugin</h2>
-      <p class="subtitle"><code>mor-duongmh/claude-plugins</code> marketplace</p>
+      <h2>Toolkit · <code>morkit</code></h2>
+      <p class="subtitle">1 plugin, 4 nhóm chức năng dưới namespace <code>/morkit:*</code></p>
       <div class="grid-2">
         <div class="card toolkit">
-          <h3><code>spec</code></h3>
-          <p>Workflow dựa trên tài liệu, của OpenSpec.</p>
+          <h3>Spec workflow</h3>
+          <p>Scaffold proposal/design/tasks + review-checklist gate. Commands: <code>/morkit:propose</code>, <code>/morkit:review</code>, <code>/morkit:archive</code>.</p>
         </div>
         <div class="card toolkit">
-          <h3><code>superpowers</code></h3>
-          <p>Skill tập trung vào TDD, bao gồm coding, reviewing và cả viết tài liệu. Tuy nhiên, bộ plugins này sẽ không dùng skill <code>/brainstorming</code> của superpowers.</p>
+          <h3>Plan &amp; build</h3>
+          <p>Brainstorm, viết plan, thực thi plan, TDD, debug. 14 skill. Commands: <code>/morkit:brainstorming</code>, <code>/morkit:writing-plans</code>, <code>/morkit:executing-plans</code>, <code>/morkit:test-driven-development</code>, <code>/morkit:systematic-debugging</code>, <code>/morkit:subagent-driven-development</code>.</p>
         </div>
         <div class="card toolkit">
-          <h3><code>deep-review</code></h3>
-          <p>5 sub-agents chạy song song để review các risk liên quan đến bảo mật, testing, convention, v.v. Có thể review trên PR hoặc trên nhánh dựa vào <code>git diff</code>.</p>
+          <h3>Code review</h3>
+          <p>5 sub-agents song song review bảo mật/testing/convention. Chạy trên PR hoặc git diff. Commands: <code>/morkit:deep-review</code>, <code>/morkit:deep-review-doctor</code>.</p>
         </div>
         <div class="card toolkit">
-          <h3><code>docs-hero</code></h3>
-          <p>BrSE doc generation: SRS + API docs + DB design. <code>/docs-hero:init</code>, <code>/docs-hero:update</code>, <code>/docs-hero:sync</code>.</p>
+          <h3>Doc generation</h3>
+          <p>Sinh SRS + API + DB doc (BrSE standard). Commands: <code>/morkit:init</code>, <code>/morkit:update</code>, <code>/morkit:sync</code>, <code>/morkit:apply-sync</code>.</p>
         </div>
       </div>
+      <p style="font-size: 0.55em; color: var(--mor-text-dim); margin-top: 0.8em; text-align: center; font-style: italic;">
+        Cài 1 lệnh: <code>/plugin install morkit@mor-duongmh</code> · 22 skill + 9 specialist agent + 15 slash command
+      </p>
       <aside class="notes">
         <p><strong>Time:</strong> 1.5 phút</p>
         <ul>
-          <li><code>spec</code> — workflow dựa trên tài liệu, OpenSpec.</li>
-          <li><code>superpowers</code> — TDD-focused. <strong>Bộ Mor không dùng /brainstorming của superpowers</strong> (override).</li>
-          <li><code>deep-review</code> — 5 sub-agents review bảo mật/testing/convention. PR hoặc git diff.</li>
-          <li><code>docs-hero</code> — generate SRS + API + DB design (BrSE standard).</li>
+          <li><strong>1 plugin <code>morkit</code></strong> gom toàn bộ — không cần install 4 plugin riêng nữa.</li>
+          <li>4 nhóm chức năng: Spec workflow / Plan &amp; build / Code review / Doc generation.</li>
+          <li>Tất cả command có prefix <code>/morkit:*</code> — dễ nhớ, dễ tab-complete.</li>
+          <li>22 skill + 9 specialist agent + 15 slash command.</li>
         </ul>
-        <p><strong>Q:</strong> Cài thế nào?<br/><strong>A:</strong> <code>/plugin add marketplace github:mor-duongmh/claude-plugins</code> rồi <code>/plugin install spec@mor-duongmh</code>. Detail trong README.</p>
+        <p><strong>Q:</strong> Cài thế nào?<br/><strong>A:</strong> <code>/plugin add marketplace github:mor-duongmh/claude-plugins</code> rồi <code>/plugin install morkit@mor-duongmh</code>. 1 lệnh, không setup per-project.</p>
       </aside>
     </section>
 
@@ -737,10 +740,10 @@ flowchart LR
       <pre class="mermaid">
 flowchart TD
   root{"Bạn cần làm gì?<br/>What do you need?"}:::review
-  l1["Start new feature<br/><code>/spec:<br/>propose</code>"]:::ai
-  l2["Continue plan<br/><code>/superpowers:<br/>execute-plan</code>"]:::ai
-  l3["Debug bug/error<br/><code>/superpowers:<br/>systematic-debugging</code>"]:::ai
-  l4["Review PR<br/><code>/deep-<br/>review</code>"]:::ai
+  l1["Start new feature<br/><code>/morkit:<br/>propose</code>"]:::ai
+  l2["Continue plan<br/><code>/morkit:<br/>executing-plans</code>"]:::ai
+  l3["Debug bug/error<br/><code>/morkit:<br/>systematic-debugging</code>"]:::ai
+  l4["Review PR<br/><code>/morkit:<br/>deep-review</code>"]:::ai
 
   root -->|new spec| l1
   root -->|impl pending| l2
@@ -754,10 +757,10 @@ flowchart TD
         <p><strong>Time:</strong> 2 phút</p>
         <ul>
           <li>Tuỳ tình huống → workflow nhỏ tương ứng.</li>
-          <li>Start new feature → <code>/spec:propose</code>.</li>
-          <li>Continue plan đang dở → <code>/superpowers:execute-plan</code>.</li>
-          <li>Debug bug/error → <code>/superpowers:systematic-debugging</code> trước, không jump vào fix.</li>
-          <li>Review PR → <code>/deep-review &lt;PR&gt;</code>.</li>
+          <li>Start new feature → <code>/morkit:propose</code>.</li>
+          <li>Continue plan đang dở → <code>/morkit:executing-plans</code>.</li>
+          <li>Debug bug/error → <code>/morkit:systematic-debugging</code> trước, không jump vào fix.</li>
+          <li>Review PR → <code>/morkit:deep-review &lt;PR&gt;</code>.</li>
           <li>AI Team sẽ gửi link tình huống cụ thể sau.</li>
         </ul>
         <p><strong>Q:</strong> Bug critical, cần spec không?<br/><strong>A:</strong> Bug nhỏ — skip spec, dùng systematic-debugging. Bug lớn (architectural) — vẫn cần spec.</p>
@@ -770,7 +773,7 @@ flowchart TD
       <ul class="anti-list">
         <li><strong>❌ Skip review gate</strong> — code sẽ khác theo spec đã thống nhất ở khâu planning và không đảm bảo chất lượng thống nhất từ đầu.</li>
         <li><strong>❌ Skip TDD</strong> — bắt buộc phải theo TDD, không được bảo agent làm theo hướng khác <strong>trừ khi đặc thù của dự án làm TDD không khả thi</strong>.</li>
-        <li><strong>❌ Bỏ qua <code>/deep-review</code></strong> — gây ra issue liên quan đến sự nhất quán về chất lượng.</li>
+        <li><strong>❌ Bỏ qua <code>/morkit:deep-review</code></strong> — gây ra issue liên quan đến sự nhất quán về chất lượng.</li>
         <li><strong>❌ Edit <code>tasks.md</code> trong lúc agent đang chạy</strong> — phá cấu trúc đang chạy của agent, gây hỏng flow.</li>
         <li><strong>❌ Dùng Agent không có tài liệu</strong> — đây là vibe coding rồi, không nằm phạm trù agentic của mình.</li>
       </ul>
@@ -779,7 +782,7 @@ flowchart TD
         <ul>
           <li><strong>Skip review gate</strong> — code drift khỏi spec, inconsistent quality giữa các phần.</li>
           <li><strong>Skip TDD</strong> — bắt buộc theo TDD trừ đặc thù dự án không khả thi. Báo trước nếu skip.</li>
-          <li><strong>Bỏ qua /deep-review</strong> — miss security/pattern issue, không thấy bằng eyeball review.</li>
+          <li><strong>Bỏ qua /morkit:deep-review</strong> — miss security/pattern issue, không thấy bằng eyeball review.</li>
           <li><strong>Edit tasks.md giữa execution</strong> — phá cấu trúc agent. Stop, edit, restart.</li>
           <li><strong>Dùng AI không có tài liệu</strong> — vibe coding, sai mục đích quy trình agentic.</li>
         </ul>
